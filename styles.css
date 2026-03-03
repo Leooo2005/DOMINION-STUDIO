@@ -446,3 +446,28 @@ body { overflow-x: clip; cursor: auto; width: 100%; -webkit-font-smoothing: anti
     .caja-marketing { height: 160px !important; max-width: 320px !important; margin-top: 20px;}
     .palabra-marketing-premium { font-size: 1.8rem !important; }
 }
+
+/* ============================================================
+   CORRECCIÓN ESPECIAL: DESBORDAMIENTO EN PROYECTOS (MÓVIL)
+   ============================================================ */
+
+/* Solo se aplica para pantallas menores a 601px (móviles pequeños) */
+@media (max-width: 601px) {
+    /* Identifica la clase del título "PROYECTOS". Probablemente sea .titulo-seccion */
+    .titulo-seccion {
+        /* Reducimos el tamaño de la fuente para que quepa */
+        font-size: 2.5rem !important; /* Ajusta este número (2.2, 2.5) hasta que se vea bien */
+        
+        /* Ajustamos el kerning/espaciado si es necesario */
+        letter-spacing: 0px !important; 
+        
+        /* Aseguramos que la palabra no se corte si aún es muy larga */
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        
+        /* Centramos bien por si acaso */
+        text-align: center !important;
+        width: 100% !important;
+        display: block !important;
+    }
+}

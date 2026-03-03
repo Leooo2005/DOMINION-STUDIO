@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Dominion Studio | Desarrollo & Diseño Web Autónomo</title>
+    <meta name="description" content="Soy Kevin Leonel, desarrollador frontend en Quito, Ecuador. En Dominion Studio construimos interfaces web modernas, ultrarrápidas y enfocadas en conversiones reales para tu negocio.">
+    <meta name="keywords" content="Desarrollo Web, Diseño UI/UX, Frontend, Páginas Web, Quito, Ecuador, Kevin Leonel, Dominion Studio, HTML, CSS, JavaScript">
+    <meta name="author" content="Kevin Leonel">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#C5A059">
+
+    <meta property="og:title" content="Dominion Studio | Desarrollo Web Premium">
+    <meta property="og:description" content="Transformo ideas abstractas en experiencias digitales completas. Diseño web a medida, rápido y rentable.">
+    <meta property="og:type" content="website">
+    
+    <link rel="icon" href="img/ZENITH-STUDIO-MARKETING(1).jpg" type="image/jpeg">
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="menu-premium" id="menu-superior">
+        <div class="menu-izq-contenedor">
+            <a href="#inicio" class="menu-logo-link">
+                <img src="img/logo-dominion.png" alt="Dominion Studio Logo" class="img-logo-menu">
+                <span class="texto-logo">DOMINION<br>STUDIO</span>
+            </a>
+            <div class="menu-etiqueta">
+                DESARROLLO & DISEÑO<br>AUTÓNOMO
+            </div>
+        </div>
+
+        <button class="menu-hamburguesa" id="btn-hamburguesa">☰</button>
+
+        <div class="menu-enlaces-contenedor" id="menu-enlaces">
+            <div class="menu-links">
+                <a href="#inicio">INICIO</a> /
+                <a href="#proyectos">PROYECTOS</a> /
+                <a href="#servicios">SERVICIOS</a> /
+                <a href="#clientes">CLIENTES</a>
+            </div>
+            <div class="menu-der">
+                <a href="#contactos" class="btn-cotiza-superior">COTIZA TU DISEÑO</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="contenedor-apilable">
+
+        <section class="panel inicio" id="inicio">
+            <h1 class="titulo-gigante">DOMINION</h1>
+
+            <div class="contenedor-hero">
+                <div class="foto-perfil">
+                    <img src="img/logo-dominion.png" alt="Kevin Leonel - Desarrollador Web Frontend">
+                </div>
+
+                <svg class="texto-circular" viewBox="0 0 150 150" width="150" height="150">
+                    <defs>
+                        <path id="circulo" d="M 75, 75 m -60, 0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"/>
+                    </defs>
+                    <text>
+                        <textPath href="#circulo">
+                            • DESARROLLO & DISEÑO • KEVIN LEONEL 
+                        </textPath>
+                    </text>
+                </svg>
+            </div>
+        </section>
+
+        <section class="panel inicio" id="nosotros">
+            <div class="contenedor-manifiesto">
+
+                <div class="texto-revelado-zona" id="zona-texto">
+                    <div class="linea-oculta"><h2 class="texto-animado">La palabra DOMINION representa</h2></div>
+                    <div class="linea-oculta"><h2 class="texto-animado">autoridad y maestría digital.</h2></div>
+                    <div class="linea-oculta"><h2 class="texto-animado">Es la capacidad de controlar</h2></div>
+                    <div class="linea-oculta"><h2 class="texto-animado">cada píxel y línea de código</h2></div>
+                    <div class="linea-oculta"><h2 class="texto-animado">para liderar tu mercado.</h2></div>
+                </div>
+
+                <div class="acordeon-zona">
+                    <div class="acordeon-titulos">
+                        <span>CÓMO</span>
+                        <span>QUÉ HACEMOS</span>
+                    </div>
+                    <div class="linea-separadora"></div>
+
+                    <div class="acordeon-item">
+                        <button class="acordeon-btn">01 ESTRATEGIA <span class="simbolo">[+]</span></button>
+                        <div class="acordeon-contenido">
+                            <p>Definimos el camino exacto para que tu marca se posicione con autoridad y domine su sector.</p>
+                        </div>
+                    </div>
+                    <div class="linea-separadora"></div>
+
+                    <div class="acordeon-item">
+                        <button class="acordeon-btn">02 DISEÑO <span class="simbolo">[+]</span></button>
+                        <div class="acordeon-contenido">
+                            <p>Creamos interfaces premium, minimalistas y de alto impacto visual para tus clientes.</p>
+                        </div>
+                    </div>
+                    <div class="linea-separadora"></div>
+
+                    <div class="acordeon-item">
+                        <button class="acordeon-btn">03 TECNOLOGÍA <span class="simbolo">[+]</span></button>
+                        <div class="acordeon-contenido">
+                            <p>Desarrollo web a medida con código limpio, rápido, seguro y 100% escalable.</p>
+                        </div>
+                    </div>
+                    <div class="linea-separadora"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="panel" id="sobre-mi" style="background-color: var(--color-inicio); color: var(--texto-oscuro);">
+            <div class="contenedor-contenido-panel">
+                <h2 class="titulo-seccion">SOBRE MÍ</h2>
+
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 40px; width: 100%; margin-top: 10px; flex: 1;" class="animar-scroll">
+                    
+                    <div style="flex: 1; min-width: 280px; max-width: 550px;">
+                        <h3 style="font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; line-height: 1.2; margin-bottom: 20px; color: var(--texto-oscuro);">
+                            Desarrollo con <br>verdadera pasión.
+                        </h3>
+                        
+                        <p style="font-size: 0.95rem; line-height: 1.5; font-weight: 500; margin-bottom: 15px; color: var(--texto-oscuro); opacity: 0.9;">
+                            Soy Kevin Leonel, un desarrollador autodidacta obsesionado con los detalles que la mayoría ignora. Mi viaje empezó con una pantalla en blanco y la pasión por descubrir cómo crear experiencias digitales impecables. Hoy, transformo esa pasión en soluciones rentables para mis clientes.
+                        </p>
+                        
+                        <p style="font-size: 0.95rem; line-height: 1.5; font-weight: 500; margin-bottom: 25px; color: var(--texto-oscuro); opacity: 0.9;">
+                            Me especializo en Desarrollo Frontend puro. No uso atajos. Mi trabajo es escribir código limpio y asegurar que el usuario tenga una experiencia tan premium que no tenga otra opción más que dar clic en "Cotizar".
+                        </p>
+
+                        <p style="font-size: 1.05rem; font-weight: 800; color: var(--texto-oscuro);">
+                            Tu negocio es único. El código que lo representa, también debe serlo.
+                        </p>
+                    </div>
+
+                    <div style="flex: 1; min-width: 280px; display: flex; justify-content: center;">
+                        <div class="caja-marketing animar-glint" style="width: 100%; max-width: 450px; height: 280px; background-color: var(--texto-oscuro); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.2); position: relative;">
+                            <span class="palabra-marketing-premium" style="color: var(--color-inicio); font-size: 3rem; font-weight: 800; letter-spacing: -1px; line-height: 1;">DOMINION</span>
+                            <span class="palabra-marketing-premium" style="color: var(--color-inicio); font-size: 3rem; font-weight: 800; letter-spacing: -1px; line-height: 1;">STUDIO</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="panel proyectos intro-bg" id="proyectos">
+            <div class="contenedor-intro-proyectos animar-scroll">
+                <h2 class="titulo-estilo-cobra">PROYECTOS</h2>
+
+                <p class="texto-premium-intro">
+                    Transformo ideas abstractas en experiencias digitales completas. Especializado en el Desarrollo Web Frontend (HTML, CSS y JavaScript), mi enfoque radica en construir interfaces modernas, rápidas y rentables. Cada píxel y línea de código está diseñado estratégicamente para atrapar a tu audiencia, elevar la identidad de tu negocio y garantizar una navegación memorable que convierta visitas en clientes reales.
+                </p>
+            </div>
+        </section>
+
+        <section class="panel proyectos cafe-bg" id="diseno-web-cafeteria">
+            <div class="contenedor-proyecto animar-scroll">
+
+                <div class="info-proyecto">
+                    <h3 class="titulo-proyecto">01. CAFETERÍA PREMIUM</h3>
+                    <p class="desc-proyecto">
+                        Diseño web enfocado en la conversión y atención al cliente. Cuenta con un sistema
+                        de reservas directo a WhatsApp, integración de redes sociales. Es una interfaz
+                        100% responsiva para cualquier dispositivo.
+                    </p>
+                    <div class="tags-proyecto">
+                        <span>HTML</span> <span>CSS</span> <span>JavaScript</span> <span>VSC</span>
+                    </div>
+                    <a href="https://leooo2005.github.io/SITIO_WEB_DEMO_cafeteria/" target="_blank" class="btn-proyecto btn-cafe">VER DISEÑO WEB</a>
+                </div>
+                <div class="imagenes-proyecto">
+                    <img src="img/proyecto1-pc.png" alt="Cafetería en PC" class="img-desktop">
+                    <img src="img/proyecto1-andorid.png" alt="Cafetería en Móvil" class="img-mobile">
+                </div>
+            </div>
+        </section>
+
+        <section class="panel proyectos burger-bg" id="comidas-rapidas">
+            <div class="contenedor-proyecto inverso animar-scroll">
+
+                <div class="info-proyecto">
+                    <h3 class="titulo-proyecto">02. FAST FOOD</h3>
+                    <p class="desc-proyecto">
+                        Interfaz dinámica y apetitosa diseñada para restaurantes de comida rápida.
+                        Navegación fluida, presentación de menú interactivo y optimización visual
+                        para atrapar al usuario desde el primer segundo.
+                    </p>
+                    <div class="tags-proyecto">
+                        <span>HTML</span> <span>CSS</span> <span>JavaScript</span> <span>VSC</span>
+                    </div>
+                    <a href="https://leooo2005.github.io/Pagina_Web_Demo1/" target="_blank" class="btn-proyecto btn-burger">VER DISEÑO WEB</a>
+                </div>
+
+                <div class="imagenes-proyecto">
+                    <img src="img/proyecto2-pc.png" alt="Fast Food en PC" class="img-desktop">
+                    <img src="img/proyecto2-android.jpeg" alt="Fast Food en Móvil" class="img-mobile">
+                </div>
+
+            </div>
+        </section>
+
+        <section class="panel servicios" id="servicios">
+            <div class="contenedor-contenido-panel">
+                <h2 class="titulo-seccion">SERVICIOS</h2>
+
+                <div class="contenedor-grid-servicios">
+                    <div class="tarjeta-servicio animar-scroll">
+                        <h3 class="numero-servicio">01</h3>
+                        <h4 class="nombre-servicio">FRONTEND</h4>
+                        <p class="desc-servicio">Construcción de interfaces modernas y ultra rápidas.</p>
+                    </div>
+
+                    <div class="tarjeta-servicio animar-scroll">
+                        <h3 class="numero-servicio">02</h3>
+                        <h4 class="nombre-servicio">DISEÑO UI/UX</h4>
+                        <p class="desc-servicio">Interfaces minimalistas centradas en la experiencia.</p>
+                    </div>
+
+                    <div class="tarjeta-servicio animar-scroll">
+                        <h3 class="numero-servicio">03</h3>
+                        <h4 class="nombre-servicio">OPTIMIZACIÓN</h4>
+                        <p class="desc-servicio">Mejora de velocidad de carga y rendimiento web.</p>
+                    </div>
+
+                    <div class="tarjeta-servicio animar-scroll">
+                        <h3 class="numero-servicio">04</h3>
+                        <h4 class="nombre-servicio">SEO TÉCNICO</h4>
+                        <p class="desc-servicio">Posicionamiento estructurado para dominar Google.</p>
+                    </div>
+
+                    <div class="tarjeta-servicio animar-scroll">
+                        <h3 class="numero-servicio">05</h3>
+                        <h4 class="nombre-servicio">APIS & DATOS</h4>
+                        <p class="desc-servicio">Integración de WhatsApp, mapas y herramientas.</p>
+                    </div>
+
+                    <div class="tarjeta-servicio animar-scroll">
+                        <h3 class="numero-servicio">06</h3>
+                        <h4 class="nombre-servicio">LANDING PAGES</h4>
+                        <p class="desc-servicio">Páginas de aterrizaje enfocadas en conversión.</p>
+                    </div>
+
+                    <div class="tarjeta-servicio animar-scroll">
+                        <h3 class="numero-servicio">07</h3>
+                        <h4 class="nombre-servicio">MANTENIMIENTO</h4>
+                        <p class="desc-servicio">Soporte, actualizaciones y blindaje de seguridad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel clientes" id="clientes">
+            <div class="contenedor-contenido-panel">
+                <h2 class="titulo-seccion">CLIENTES</h2>
+
+                <div class="contenedor-estado-vacio">
+                    <div class="caja-reserva animar-scroll">
+                        <span class="etiqueta-exclusiva">ESPACIO DISPONIBLE</span>
+                        <h3 class="mensaje-reserva">Tu marca pertenece aquí.</h3>
+                        <p class="desc-reserva">
+                            Actualmente estoy abriendo mi agenda para nuevos desarrollos.
+                            ¿Buscas una web rápida, moderna y que realmente venda?
+                            Sé el protagonista de mi próximo gran caso de éxito.
+                        </p>
+                        <a href="#contactos" class="btn-reserva">INICIAR PROYECTO</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="panel contactos" id="contactos">
+            <div class="contenedor-contenido-panel" style="justify-content: space-between;">
+                <h2 class="titulo-seccion">CONTACTOS</h2>
+
+                <div class="contenedor-contacto-layout">
+                    
+                    <div class="zona-precios animar-scroll">
+                        
+                        <div class="tarjeta-precio">
+                            <h3 class="nombre-plan">DISEÑO BASE</h3>
+                            <p class="desc-plan">Ideal para iniciar tu presencia digital con un diseño de alto impacto.</p>
+                            <ul class="lista-beneficios">
+                                <li>✔️ Diseño Web a Medida</li>
+                                <li>✔️ Adaptable a Celulares</li>
+                                <li>✔️ Optimización Básica</li>
+                                <li>✔️ API para Whatsapp</li>
+                                <li>✔️ 3 Modificaciones (primeros 2 meses)</li>
+                                <li class="beneficio-negativo">❌ Sin dominio personalizado</li>
+                            </ul>
+                            <div class="precio-plan">$70</div> 
+                            <a href="https://wa.me/593985952334?text=Hola,%20me%20interesa%20el%20Plan%20DISEÑO%20BASE" target="_blank" class="btn-estilo-caja btn-precio-caja">COTIZA AHORA</a>
+                        </div>
+
+                        <div class="tarjeta-precio tarjeta-pro">
+                            <span class="etiqueta-recomendado">MÁS POPULAR</span>
+                            <h3 class="nombre-plan">DISEÑO PRO</h3>
+                            <p class="desc-plan">La experiencia completa profesional para escalar tu negocio.</p>
+                            <ul class="lista-beneficios">
+                                <li>✔️ Diseño Web UI/UX Premium</li>
+                                <li>✔️ SEO Técnico Avanzado</li>
+                                <li>✔️ API para Whatsapp</li>
+                                <li>✔️ Mantenimiento anual</li>
+                                <li>✔️ Dominio Propio (.com) Anual</li>
+                                <li>✔️ Soporte Prioritario</li>
+                            </ul>
+                            <div class="precio-plan">$140</div>
+                            <a href="https://wa.me/593985952334?text=Hola,%20me%20interesa%20el%20Plan%20DISEÑO%20PRO" target="_blank" class="btn-estilo-caja btn-precio-pro-caja">COTIZA AHORA</a>
+                        </div>
+
+                    </div>
+
+                    <div class="zona-redes animar-scroll">
+                        <h3 class="titulo-redes">MIS REDES</h3>
+                        <div class="lista-enlaces-redes">
+                            
+                            <a href="https://github.com/Leooo2005" target="_blank" class="enlace-red">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                GitHub
+                            </a>
+
+                            <a href="https://instagram.com/its_leovv" target="_blank" class="enlace-red">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                Instagram
+                            </a>
+
+                            <a href="https://wa.me/593985952334" target="_blank" class="enlace-red">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                WhatsApp
+                            </a>
+
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kevinlalangui2005@gmail.com" target="_blank" class="enlace-red">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Correo
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <footer class="footer-final">
+                    <p>
+                        &copy; 2026 DOMINION STUDIO. Desarrollado con pasión. Quito - Ecuador
+                    </p>
+                </footer>
+                
+            </div>
+        </section>
+
+    </main> 
+
+    <script src="script.js"></script>
+</body>
+</html>

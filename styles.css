@@ -1,0 +1,448 @@
+/* =========================================
+   1. VARIABLES Y RESETEO BÁSICO
+   ========================================= */
+:root {
+    --color-inicio: #C5A059; 
+    --color-proyectos: #BAE89D; 
+    --color-servicios: #bdde02; 
+    --color-clientes: #464AAB;  
+    --color-contactos: #250d12; 
+    
+    --texto-oscuro: #000000;
+    --texto-claro: #FFFFFF;
+}
+
+html { scroll-behavior: smooth; overflow-x: clip; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Syne', sans-serif; }
+body { overflow-x: clip; cursor: auto; width: 100%; -webkit-font-smoothing: antialiased; }
+
+/* =========================================
+   2. MENÚ PREMIUM (ABSOLUTO)
+   ========================================= */
+.menu-premium {
+    position: absolute; top: 0; left: 0; width: 100%; height: 90px; 
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 50px; 
+    z-index: 1000; font-weight: 600; text-transform: uppercase; 
+    font-size: 0.8rem; color: var(--texto-oscuro); 
+}
+
+/* ARREGLO LOGO + TEXTO AL LADO */
+.menu-izq-contenedor { display: flex; align-items: center; gap: 15px; }
+
+.menu-logo-link {
+    display: flex !important; 
+    align-items: center !important;
+    gap: 12px !important;
+    text-decoration: none;
+    color: var(--texto-oscuro);
+    flex-direction: row !important;
+}
+
+.img-logo-menu { 
+    height: 45px; 
+    width: auto; 
+    object-fit: contain; 
+    display: block; 
+}
+
+.texto-logo {
+    font-size: 1.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    text-align: left;
+    display: block !important;
+}
+
+.menu-etiqueta { line-height: 1.2; opacity: 0.8; margin-left: 10px; border-left: 2px solid var(--texto-oscuro); padding-left: 15px;}
+
+.menu-enlaces-contenedor { display: flex; align-items: center; gap: 25px; }
+.menu-links a { text-decoration: none; color: var(--texto-oscuro); margin: 0 8px; padding: 10px 0px; transition: opacity 0.3s; display: inline-block; font-weight: 700; position: relative; }
+.menu-links a::after { content: ''; position: absolute; bottom: 5px; left: 0; width: 0; height: 2px; background-color: currentColor; transition: width 0.3s ease; }
+.menu-links a:hover::after, .menu-links a.activo-link::after { width: 100%; }
+.menu-links a:hover { opacity: 0.6; }
+
+/* BOTÓN "COTIZA" SUPERIOR CUADRO INTERACTIVO */
+.btn-cotiza-superior { 
+    background-color: var(--texto-oscuro); 
+    color: var(--color-inicio); 
+    padding: 12px 24px; 
+    text-decoration: none; font-weight: 800; 
+    letter-spacing: 0px !important; 
+    font-size: 0.85rem; 
+    white-space: nowrap; transition: all 0.3s ease; display: inline-block; 
+    border: 2px solid var(--texto-oscuro);
+    border-radius: 4px;
+}
+.btn-cotiza-superior:hover { 
+    background-color: var(--color-inicio); 
+    color: var(--texto-oscuro); 
+}
+
+.menu-hamburguesa { display: none; background: none; border: none; font-size: 2rem; color: var(--texto-oscuro); z-index: 1001; cursor: pointer; }
+
+/* =========================================
+   3. EFECTO DE APILADO
+   ========================================= */
+.contenedor-apilable { position: relative; width: 100%; }
+.panel { position: sticky; top: 0; height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden; box-shadow: 0 -5px 40px rgba(0,0,0,0.06); width: 100%; }
+
+/* --- SECCIÓN INICIO --- */
+.inicio { background-color: var(--color-inicio); position: relative; }
+.inicio .titulo-gigante { position: absolute; z-index: 1; opacity: 0.15; font-size: 15vw; color: var(--texto-oscuro); line-height: 0.8; text-align: center; margin: 0; letter-spacing: -2px; pointer-events: none; }
+.contenedor-hero { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; width: 450px; height: 450px; }
+.foto-perfil { width: 300px; height: 300px; border-radius: 50%; overflow: hidden; position: absolute; box-shadow: 0 10px 40px rgba(0,0,0,0.12); z-index: 3; border: 5px solid var(--texto-oscuro); background-color: var(--texto-oscuro); }
+.foto-perfil img { width: 100%; height: 100%; object-fit: cover; }
+.texto-circular { position: absolute; width: 110%; height: 110%; pointer-events: none; z-index: 4; }
+.texto-circular text { font-size: 12.5px; font-weight: 700; fill: var(--texto-oscuro); letter-spacing: 2px; }
+
+/* --- COLORES --- */
+.proyectos { background-color: var(--color-proyectos); }
+.servicios { background-color: var(--color-servicios); } 
+.clientes { background-color: var(--color-clientes); color: var(--texto-claro); } 
+.clientes .titulo-seccion { color: var(--texto-oscuro); }
+.contactos { background-color: var(--color-contactos); color: var(--texto-claro); }
+.contactos .titulo-seccion { color: var(--color-inicio); }
+.inicio + .inicio, .proyectos + .proyectos, .servicios + .servicios, .clientes + .clientes, .contactos + .contactos { box-shadow: none; }
+
+/* =========================================
+   4. MANIFIESTO Y ACORDEÓN
+   ========================================= */ 
+.contenedor-manifiesto { display: flex; width: 100%; max-width: 1400px; padding: 0 50px; gap: 80px; justify-content: space-between; align-items: center; }
+.texto-revelado-zona { flex: 1.5; }
+.linea-oculta { overflow: hidden; margin-bottom: 5px; }
+.texto-animado { font-size: clamp(22px, 2vw, 38px); line-height: 1.2; font-weight: 700; letter-spacing: 0px; transform: translateY(100%); transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.texto-animado.aparecer { transform: translateY(0); }
+.linea-oculta:nth-child(1) .texto-animado { transition-delay: 0.1s; }
+.linea-oculta:nth-child(2) .texto-animado { transition-delay: 0.2s; }
+.linea-oculta:nth-child(3) .texto-animado { transition-delay: 0.3s; }
+.linea-oculta:nth-child(4) .texto-animado { transition-delay: 0.4s; }
+.linea-oculta:nth-child(5) .texto-animado { transition-delay: 0.5s; }
+.acordeon-zona { flex: 1; max-width: 450px; }
+.acordeon-titulos { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 800; margin-bottom: 20px; letter-spacing: 1px; }
+.linea-separadora { width: 100%; height: 2px; background-color: var(--texto-oscuro); }
+.acordeon-btn { width: 100%; background: none; border: none; display: flex; justify-content: space-between; align-items: center; padding: 15px 0; font-size: 1rem; font-weight: 600; color: var(--texto-oscuro); text-transform: uppercase; cursor: pointer; }
+.acordeon-contenido { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
+.acordeon-contenido p { padding-bottom: 20px; font-size: 0.9rem; line-height: 1.5; font-weight: 500; }
+
+/* ANIMACIÓN GLINT */
+.palabra-marketing-premium {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg, #C5A059 0%, #FFF 50%, #C5A059 100%);
+    background-size: 200% auto;
+    color: #C5A059;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGlint 3s linear infinite;
+}
+@keyframes textGlint { to { background-position: 200% center; } }
+
+/* =========================================
+   6. SECCIÓN DE PROYECTOS 
+   ========================================= */
+.intro-bg { background-color: #E2E6E9; } 
+.cafe-bg, .burger-bg { position: relative; overflow: hidden; z-index: 1; }
+.cafe-bg { background-color: var(--color-inicio); }  
+.cafe-bg::before {
+    content: ''; position: absolute; top: -10%; right: -10%; width: 60vw; height: 120%;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 19h16v2H4zM20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm-4 10c0 1.1-.9 2-2 2H8c-1.1 0-2-.9-2-2V5h10v8zm4-5h-2V5h2v3z"/></svg>');
+    background-repeat: no-repeat; background-size: contain; background-position: center right;
+    opacity: 0.05; z-index: -1; pointer-events: none; transform: rotate(15deg);
+}
+
+.burger-bg { background-color: #DD1C1A; color: var(--texto-claro); } 
+.burger-bg .titulo-proyecto, .burger-bg .desc-proyecto, .burger-bg .tags-proyecto span { color: var(--texto-claro); }
+.burger-bg::before {
+    content: ''; position: absolute; top: -20%; left: -15%; width: 70vw; height: 140%;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23FFFFFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.99 10.15c-.06-.52-.39-1.07-1.14-1.42-.48-.22-1.39-.42-2.58-.58-.33-1.63-1.44-3.35-3.32-4.64C13.23 2.33 11.08 2 10 2S6.77 2.33 5.05 3.51C3.17 4.8 2.06 6.52 1.73 8.15c-1.19.16-2.1.36-2.58.58-.75.35-1.08.9-1.14 1.42-.04.42.17.91.73 1.34.6.45 1.58.82 2.8 1.1v2.91c0 1.94 1.48 3.53 3.32 3.89.97.19 2.04.3 3.14.3s2.17-.11 3.14-.3c1.84-.36 3.32-1.95 3.32-3.89v-2.91c1.22-.28 2.2-.65 2.8-1.1.56-.43.77-.92.73-1.34zM10 4c.82 0 2.53.25 4.02 1.25 1.38.93 2.19 2.17 2.45 3.25H3.53c.26-1.08 1.07-2.32 2.45-3.25C7.47 4.25 9.18 4 10 4zm2.14 15.3c-.68.13-1.42.2-2.14.2s-1.46-.07-2.14-.2c-.93-.18-1.64-1.05-1.64-2V13h7.56v4.3c0 .95-.71 1.82-1.64 2zM3 10.5c0-.4.65-.8 1.98-1.13.01.21.02.42.02.63v.5H2v-.5h1z"/></svg>');
+    background-repeat: no-repeat; background-size: contain; background-position: center left;
+    opacity: 0.08; z-index: -1; pointer-events: none; transform: rotate(-10deg);
+}
+
+.contenedor-intro-proyectos { width: 100%; max-width: 1000px; padding: 0 40px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+/* CENTRADO DE TÍTULOS EN DESKTOP */
+.titulo-estilo-cobra { font-size: clamp(40px, 7vw, 100px); font-weight: 800; color: var(--texto-oscuro); line-height: 1; letter-spacing: -1px; margin: 0; text-transform: uppercase; text-align: center; width: 100%; }
+
+.texto-premium-intro { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-style: italic; line-height: 1.6; font-weight: 600; color: var(--texto-oscuro); max-width: 800px; margin: 30px auto 0 auto; text-align: center;}
+
+.contenedor-proyecto { display: flex; width: 100%; max-width: 1200px; padding: 0 50px; align-items: center; justify-content: space-between; gap: 60px; }
+.contenedor-proyecto.inverso { flex-direction: row-reverse; }
+.info-proyecto { flex: 1; max-width: 500px; }
+.titulo-proyecto { font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -1px; line-height: 1.1; }
+.desc-proyecto { font-size: 1.1rem; line-height: 1.6; font-weight: 600; margin-bottom: 30px; }
+.tags-proyecto { display: flex; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+.tags-proyecto span { font-size: 0.85rem; font-weight: 800; border: 2px solid currentColor; padding: 5px 15px; border-radius: 50px; }
+.btn-proyecto { padding: 18px 35px; font-weight: 800; text-decoration: none; letter-spacing: 0px; display: inline-block; transition: transform 0.3s ease, background-color 0.3s ease; }
+.btn-proyecto:hover { transform: translateY(-5px); }
+.btn-cafe { background-color: var(--texto-oscuro); color: var(--color-inicio); }
+.btn-cafe:hover { background-color: #333; color: var(--texto-claro); }
+.btn-burger { background-color: #FFF1D0; color: #DD1C1A; }
+.btn-burger:hover { background-color: var(--texto-claro); }
+
+.imagenes-proyecto { flex: 1; position: relative; display: flex; justify-content: center; align-items: center; height: 450px; }
+.img-desktop { width: 100%; max-width: 550px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: block; }
+.img-mobile { position: absolute; bottom: -20px; right: -20px; width: 180px; border-radius: 20px; box-shadow: -5px 10px 30px rgba(0,0,0,0.12); border: 5px solid #222; display: block; z-index: 2; }
+.inverso .img-mobile { right: auto; left: -20px; }
+.animar-scroll { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.animar-scroll.visible { opacity: 1; transform: translateY(0); }
+
+/* =========================================
+   7. PANELES DE CONTENIDO BASE
+   ========================================= */
+/* ALINEACIÓN CENTRADA DE TÍTULOS (Servicios, Contactos, Clientes) */
+.contenedor-contenido-panel { width: 100%; max-width: 1200px; padding: 20px 50px; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; }
+.titulo-seccion { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -1px; margin-bottom: 25px; text-transform: uppercase; color: var(--texto-oscuro); width: 100%; text-align: center; }
+
+/* --- GRID DE SERVICIOS --- */
+.contenedor-grid-servicios { width: 100%; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.tarjeta-servicio { background-color: var(--texto-claro); color: var(--texto-oscuro); border: 2px solid var(--texto-oscuro); box-shadow: 0 10px 40px rgba(0,0,0,0.04); padding: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; text-align: left; }
+.tarjeta-servicio:hover { transform: translate(-4px, -4px); box-shadow: 0 15px 45px rgba(0,0,0,0.07); }
+.numero-servicio { font-size: 0.85rem; font-weight: 800; opacity: 0.5; margin-bottom: 5px; color: var(--texto-oscuro); }
+.nombre-servicio { font-size: 1rem; font-weight: 800; margin-bottom: 10px; line-height: 1.1; letter-spacing: 0px; color: var(--texto-oscuro); }
+.desc-servicio { font-size: 0.8rem; font-weight: 500; line-height: 1.4; opacity: 0.9; color: var(--texto-oscuro); }
+
+
+/* =========================================
+   4. CUADRO DE CLIENTES 100% SÓLIDO Y VISIBLE
+   ========================================= */
+.contenedor-estado-vacio { width: 100%; display: flex; justify-content: center; align-items: center; flex: 1; margin-top: 0px; }
+
+.caja-reserva { 
+    background-color: var(--texto-claro) !important; 
+    border: none !important; 
+    border-radius: 15px;
+    padding: 50px 40px; 
+    width: 100%; max-width: 950px; 
+    display: flex; flex-direction: column; align-items: center; text-align: center; 
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25); 
+    transition: all 0.4s ease; 
+}
+.caja-reserva:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 25px 60px rgba(0,0,0,0.35); 
+}
+.caja-reserva .mensaje-reserva { 
+    color: var(--texto-oscuro) !important; 
+    font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -1px; margin-bottom: 12px; 
+}
+.caja-reserva .desc-reserva { 
+    color: var(--texto-oscuro) !important; 
+    font-size: 1.05rem; line-height: 1.5; margin-bottom: 25px; opacity: 0.9; max-width: 800px; 
+}
+.caja-reserva .etiqueta-exclusiva { 
+    background-color: var(--color-inicio); 
+    color: var(--texto-oscuro); 
+    font-size: 0.85rem; font-weight: 800; letter-spacing: 2px; padding: 6px 16px; text-transform: uppercase; display: inline-block; margin-bottom: 15px; border-radius: 5px; 
+}
+.btn-reserva { 
+    background-color: var(--texto-oscuro); 
+    color: var(--texto-claro); 
+    border: 2px solid var(--texto-oscuro); 
+    padding: 16px 35px; font-weight: 800; text-decoration: none; letter-spacing: 1px; display: inline-block; transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; border-radius: 5px; 
+}
+.btn-reserva:hover { 
+    background-color: transparent; 
+    color: var(--texto-oscuro); 
+    transform: translateY(-5px); 
+}
+
+/* =========================================
+   8. SECCIÓN CONTACTOS (BOTONES ARREGLADOS)
+   ========================================= */
+.contenedor-contacto-layout { width: 100%; display: flex; justify-content: center; align-items: flex-start; gap: 40px; margin-top: 0px; flex-wrap: wrap; }
+.zona-precios { flex: 2; display: flex; justify-content: center; align-items: flex-start; gap: 20px; margin-top: -10px; }
+
+.tarjeta-precio { 
+    background-color: var(--texto-claro); color: var(--texto-oscuro); 
+    border: 2px solid var(--texto-oscuro); 
+    padding: 20px; 
+    display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1; max-width: 320px; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+.tarjeta-precio:hover { transform: translateY(-5px); box-shadow: 0 15px 45px rgba(0,0,0,0.3); }
+.tarjeta-pro { background-color: var(--color-inicio); border: 3px solid var(--texto-oscuro); } 
+.etiqueta-recomendado { position: absolute; top: -12px; background-color: var(--texto-oscuro); color: var(--texto-claro); font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: 20px; letter-spacing: 1px; }
+
+.nombre-plan { font-size: 1.2rem; font-weight: 700; font-style: normal; letter-spacing: 0px; margin-bottom: 5px; }
+.desc-plan { font-size: 0.8rem; font-weight: 500; margin-bottom: 15px; line-height: 1.3; opacity: 0.8; }
+.lista-beneficios { list-style: none; margin-bottom: 15px; width: 100%; text-align: left; }
+.lista-beneficios li { font-size: 0.8rem; font-weight: 600; margin-bottom: 5px; padding-bottom: 5px; border-bottom: 1px solid rgba(0,0,0,0.1); }
+.lista-beneficios li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.beneficio-negativo { opacity: 0.5; text-decoration: line-through; }
+
+.precio-plan { font-size: 2rem; font-weight: 700; color: var(--texto-oscuro); margin: 10px 0 15px 0; line-height: 1; font-family: 'Arial', sans-serif; letter-spacing: 0px; }
+
+/* Botones en caja de precios */
+.btn-estilo-caja {
+    display: block; 
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-decoration: none; 
+    letter-spacing: 0px; 
+    transition: all 0.3s ease;
+    border-radius: 4px; 
+    margin-top: auto; 
+}
+
+.btn-precio-caja { 
+    background-color: transparent; 
+    border: 2px solid var(--texto-oscuro); 
+    color: var(--texto-oscuro); 
+}
+.btn-precio-caja:hover { 
+    background-color: var(--texto-oscuro); 
+    color: var(--texto-claro); 
+}
+
+.btn-precio-pro-caja { 
+    background-color: var(--texto-oscuro); 
+    border: 2px solid var(--texto-oscuro);
+    color: var(--color-inicio); 
+}
+.btn-precio-pro-caja:hover { 
+    background-color: transparent; 
+    color: var(--texto-oscuro); 
+}
+
+.zona-redes { flex: 1; min-width: 200px; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; margin-top: -10px; }
+.titulo-redes { font-size: 1.1rem; font-weight: 800; color: var(--texto-claro); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; text-align: center;}
+.lista-enlaces-redes { display: flex; flex-direction: column; gap: 10px; align-items: center;}
+.enlace-red { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; font-weight: 700; color: var(--texto-claro); text-decoration: none; transition: transform 0.3s ease, color 0.3s ease; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.enlace-red:hover { transform: translateX(10px); color: var(--color-inicio); border-bottom-color: var(--color-inicio); }
+.enlace-red svg { transition: transform 0.3s ease; width: 20px; height: 20px; }
+.enlace-red:hover svg { transform: scale(1.1); }
+
+/* COPYRIGHT */
+.footer-final { width: 100%; text-align: center; padding: 15px 0; margin-top: auto; border-top: 1px solid rgba(255,255,255,0.1); }
+.footer-final p { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; color: var(--texto-claro); }
+
+
+/* =========================================
+   9. RESPONSIVE MASTER / MODO MÓVIL BLINDADO (IPHONE 8)
+   ========================================= */
+@media (max-width: 900px) {
+    .menu-premium { padding: 0 20px; height: 70px; position: absolute; }
+    
+    .menu-izq-contenedor { gap: 10px; }
+    .img-logo-menu { height: 35px !important; } 
+    .texto-logo { font-size: 1rem !important; display: block !important;} 
+    .menu-etiqueta { display: none; } 
+
+    .menu-hamburguesa { display: block; padding: 5px; font-size: 1.6rem; }
+    .contenedor-apilable { width: 100%; max-width: 100vw; overflow-x: clip; }
+    .panel { position: relative; height: auto; min-height: 100vh; padding-top: 80px; padding-bottom: 60px; width: 100%; max-width: 100vw; overflow-x: clip; flex-direction: column;}
+    .inicio .titulo-gigante { font-size: 16vw; }
+    
+    /* PALABRAS LARGAS FORZADAS A NO ROMPERSE NUNCA */
+    .titulo-estilo-cobra, .titulo-seccion { 
+        font-size: 2.2rem !important; /* Tamaño fijo perfecto para iPhone 8 */
+        letter-spacing: -1px; 
+        width: 100%; 
+        white-space: nowrap !important; /* MAGIA: Evita que "PROYECTO S" se parta */
+        text-align: center !important;
+        margin-left: auto; margin-right: auto;
+    }
+    
+    .contenedor-contenido-panel { padding: 0px 20px; align-items: center !important; justify-content: flex-start; width: 100%; height: auto; overflow-y: visible; }
+    
+    .contenedor-estado-vacio { margin-top: 10px; }
+    .caja-reserva { padding: 25px 15px; }
+    
+    /* ====================================================
+       MAGIA DE ORDEN PARA PROYECTOS EN CELULAR
+       ==================================================== */
+    .contenedor-proyecto, .contenedor-proyecto.inverso { 
+        display: flex !important; 
+        flex-direction: column !important; 
+        align-items: center !important;
+        gap: 0 !important;
+    }
+    
+    .info-proyecto {
+        display: contents !important; /* Permite reordenar todo como una sola lista */
+    }
+
+    /* ORDEN EXACTO SOLICITADO: Título > Desc > Tags > Imagen > Link */
+    .titulo-proyecto { order: 1; text-align: center; font-size: 2rem !important; margin-bottom: 10px;}
+    .desc-proyecto { order: 2; text-align: center; margin-bottom: 15px;}
+    .tags-proyecto { order: 3; justify-content: center; margin-bottom: 20px;}
+    
+    .imagenes-proyecto { 
+        order: 4; /* Pone las imágenes debajo de las herramientas */
+        width: 100%; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
+        margin-top: 10px; 
+        position: relative; 
+        padding-bottom: 30px; /* Da espacio a la imagen móvil sobrepuesta */
+        min-height: 250px;
+    }
+    
+    .btn-proyecto { 
+        order: 5; /* Pone el botón ENLACE al final de todo */
+        margin-top: 20px; 
+        width: 100%; 
+        text-align: center; 
+    }
+
+    /* TAMAÑOS FIJOS PARA IMÁGENES (No más "puntos") */
+    .img-desktop { 
+        width: 100% !important; 
+        max-width: 340px !important; 
+        position: relative !important; 
+        display: block !important; 
+        z-index: 1 !important; 
+        margin: 0 auto !important; 
+        border-radius: 8px;
+    }
+    .img-mobile { 
+        width: 120px !important; /* Tamaño absoluto en píxeles. NUNCA se hará pequeña */
+        height: auto !important;
+        position: absolute !important; 
+        bottom: 0px !important; 
+        right: 5% !important; 
+        z-index: 2 !important; 
+        left: auto !important; 
+        margin: 0 !important;
+        border: 4px solid #222 !important;
+    }
+    .inverso .img-mobile { 
+        left: 5% !important; 
+        right: auto !important; 
+    }
+    
+    /* RESTO DE MÓVIL */
+    .contenedor-grid-servicios { grid-template-columns: 1fr; gap: 15px; width: 100%; margin-top: 10px; }
+    .contenedor-contacto-layout { flex-direction: column; gap: 20px; align-items: center; width: 100%; }
+    .zona-precios { flex-direction: column; gap: 15px; align-items: center; width: 100%; margin-top: 0; }
+    .tarjeta-precio { width: 100%; max-width: 320px; padding: 20px; }
+    .zona-redes { margin-top: 20px; align-items: center; width: 100%; text-align: center; }
+    .lista-enlaces-redes { align-items: center; }
+    .contenedor-manifiesto { flex-direction: column; text-align: center; gap: 40px; width: 100%; padding: 0 20px; }
+    
+    .menu-enlaces-contenedor { 
+        position: absolute; top: 0; left: 0; width: 100%; height: auto; 
+        padding: 80px 20px 30px 20px; background-color: var(--color-inicio); 
+        border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1); flex-direction: column; 
+        align-items: center; transform: translateY(-100%); transition: transform 0.4s ease; z-index: 1000; 
+    }
+    .menu-enlaces-contenedor.activo { transform: translateY(0); }
+    .menu-links { flex-direction: column; gap: 10px; margin-bottom: 20px; align-items: center;}
+    .menu-links a { font-size: 1.1rem; }
+    
+    .btn-cotiza-superior { font-size: 0.9rem; padding: 12px 20px; }
+    
+    .contenedor-hero { width: 300px; height: 300px; margin-top: 30px; }
+    .foto-perfil { width: 200px; height: 200px; }
+    
+    .caja-marketing { height: 160px !important; max-width: 320px !important; margin-top: 20px;}
+    .palabra-marketing-premium { font-size: 1.8rem !important; }
+}

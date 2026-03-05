@@ -338,12 +338,12 @@ body { overflow-x: clip; cursor: auto; width: 100%; -webkit-font-smoothing: anti
     .panel { position: relative; height: auto; min-height: 100vh; padding-top: 80px; padding-bottom: 60px; width: 100%; max-width: 100vw; overflow-x: clip; flex-direction: column;}
     .inicio .titulo-gigante { font-size: 16vw; }
     
-    /* PALABRAS LARGAS FORZADAS A NO ROMPERSE NUNCA */
+    /* PALABRAS LARGAS FORZADAS A NO ROMPERSE NUNCA Y CENTRADAS */
     .titulo-estilo-cobra, .titulo-seccion { 
         font-size: 2.2rem !important; /* Tamaño fijo perfecto para iPhone 8 */
         letter-spacing: -1px; 
         width: 100%; 
-        white-space: nowrap !important; /* MAGIA: Evita que "PROYECTO S" se parta */
+        white-space: nowrap !important; /* Evita que las palabras se partan */
         text-align: center !important;
         margin-left: auto; margin-right: auto;
     }
@@ -354,7 +354,7 @@ body { overflow-x: clip; cursor: auto; width: 100%; -webkit-font-smoothing: anti
     .caja-reserva { padding: 25px 15px; }
     
     /* ====================================================
-       MAGIA DE ORDEN PARA PROYECTOS EN CELULAR
+       ORDEN PARA PROYECTOS EN CELULAR
        ==================================================== */
     .contenedor-proyecto, .contenedor-proyecto.inverso { 
         display: flex !important; 
@@ -364,16 +364,15 @@ body { overflow-x: clip; cursor: auto; width: 100%; -webkit-font-smoothing: anti
     }
     
     .info-proyecto {
-        display: contents !important; /* Permite reordenar todo como una sola lista */
+        display: contents !important; 
     }
 
-    /* ORDEN EXACTO SOLICITADO: Título > Desc > Tags > Imagen > Link */
     .titulo-proyecto { order: 1; text-align: center; font-size: 2rem !important; margin-bottom: 10px;}
     .desc-proyecto { order: 2; text-align: center; margin-bottom: 15px;}
     .tags-proyecto { order: 3; justify-content: center; margin-bottom: 20px;}
     
     .imagenes-proyecto { 
-        order: 4; /* Pone las imágenes debajo de las herramientas */
+        order: 4; 
         width: 100%; 
         display: flex; 
         flex-direction: column; 
@@ -381,18 +380,17 @@ body { overflow-x: clip; cursor: auto; width: 100%; -webkit-font-smoothing: anti
         align-items: center; 
         margin-top: 10px; 
         position: relative; 
-        padding-bottom: 30px; /* Da espacio a la imagen móvil sobrepuesta */
+        padding-bottom: 30px; 
         min-height: 250px;
     }
     
     .btn-proyecto { 
-        order: 5; /* Pone el botón ENLACE al final de todo */
+        order: 5; 
         margin-top: 20px; 
         width: 100%; 
         text-align: center; 
     }
 
-    /* TAMAÑOS FIJOS PARA IMÁGENES (No más "puntos") */
     .img-desktop { 
         width: 100% !important; 
         max-width: 340px !important; 
@@ -403,7 +401,7 @@ body { overflow-x: clip; cursor: auto; width: 100%; -webkit-font-smoothing: anti
         border-radius: 8px;
     }
     .img-mobile { 
-        width: 120px !important; /* Tamaño absoluto en píxeles. NUNCA se hará pequeña */
+        width: 120px !important; 
         height: auto !important;
         position: absolute !important; 
         bottom: 0px !important; 
@@ -418,7 +416,6 @@ body { overflow-x: clip; cursor: auto; width: 100%; -webkit-font-smoothing: anti
         right: auto !important; 
     }
     
-    /* RESTO DE MÓVIL */
     .contenedor-grid-servicios { grid-template-columns: 1fr; gap: 15px; width: 100%; margin-top: 10px; }
     .contenedor-contacto-layout { flex-direction: column; gap: 20px; align-items: center; width: 100%; }
     .zona-precios { flex-direction: column; gap: 15px; align-items: center; width: 100%; margin-top: 0; }
@@ -447,27 +444,13 @@ body { overflow-x: clip; cursor: auto; width: 100%; -webkit-font-smoothing: anti
     .palabra-marketing-premium { font-size: 1.8rem !important; }
 }
 
-/* ============================================================
-   CORRECCIÓN ESPECIAL: DESBORDAMIENTO EN PROYECTOS (MÓVIL)
-   ============================================================ */
-
-/* Solo se aplica para pantallas menores a 601px (móviles pequeños) */
+/* --- BLOQUE DE CORRECCIÓN PARA MÓVILES PEQUEÑOS (< 601px) --- */
 @media (max-width: 601px) {
-    /* Identifica la clase del título "PROYECTOS". Probablemente sea .titulo-seccion */
-    .titulo-seccion {
-        /* Reducimos el tamaño de la fuente para que quepa */
-        font-size: 2.5rem !important; /* Ajusta este número (2.2, 2.5) hasta que se vea bien */
-        
-        /* Ajustamos el kerning/espaciado si es necesario */
-        letter-spacing: 0px !important; 
-        
-        /* Aseguramos que la palabra no se corte si aún es muy larga */
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-        
-        /* Centramos bien por si acaso */
+    .titulo-seccion, .titulo-estilo-cobra {
+        font-size: 2.2rem !important; /* Tamaño reducido para evitar desbordamiento */
         text-align: center !important;
         width: 100% !important;
         display: block !important;
+        white-space: nowrap !important;
     }
 }

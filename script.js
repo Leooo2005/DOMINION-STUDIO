@@ -53,7 +53,7 @@ const observadorMenu = new IntersectionObserver((entradas) => {
         if (entrada.isIntersecting) {
             let idActual = entrada.target.getAttribute('id');
 
-            if(idActual === 'nosotros' || idActual === 'sobre-mi') { idActual = 'inicio'; }
+            if(idActual === 'nosotros' || idActual === 'sobre-mi' || idActual === 'experiencia') { idActual = 'inicio'; }
             if(idActual === 'diseno-web-cafeteria' || idActual === 'comidas-rapidas') { idActual = 'proyectos'; }
 
             linksMenuNav.forEach(link => {
@@ -138,3 +138,41 @@ const observadorServicios = new IntersectionObserver((entradas) => {
 }, { threshold: 0.1 }); 
 
 tarjetasServicios.forEach(tarjeta => observadorServicios.observe(tarjeta));
+
+/* ==========================================
+   ANIMACIÓN DE ESTADÍSTICAS (CONTADOR)
+   ========================================== */
+const contadores = document.querySelectorAll('.stat-numero');
+const velocidad = 100; // Ajusta esto para hacerlo más rápido o lento
+
+const animarContadores = () => {
+    contadores.forEach(contador => {
+        const actualizarCuenta = () => {
+            const objetivo = +contador.getAttribute('data-target');
+            const conteoActual = +contador.innerText;
+            const incremento = objetivo / velocidad;
+
+            if (conteoActual < objetivo) {
+                contador.innerText = Math.ceil(conteoActual + incremento);
+                setTimeout(actualizarCuenta, 30);
+            } else {
+                contador.innerText = objetivo;
+            }
+        };
+        actualizarCuenta();
+    });
+}
+
+const observadorEstadisticas = new IntersectionObserver((entradas) => {
+    entradas.forEach(entrada => {
+        if (entrada.isIntersecting) {
+            animarContadores();
+            observadorEstadisticas.unobserve(entrada.target); 
+        }
+    });
+}, { threshold: 0.5 }); 
+
+const seccionEstadisticas = document.querySelector('.fila-estadisticas');
+if (seccionEstadisticas) {
+    observadorEstadisticas.observe(seccionEstadisticas);
+}

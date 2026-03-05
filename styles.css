@@ -321,6 +321,84 @@ body { overflow-x: clip; cursor: auto; width: 100%; -webkit-font-smoothing: anti
 .footer-final { width: 100%; text-align: center; padding: 15px 0; margin-top: auto; border-top: 1px solid rgba(255,255,255,0.1); }
 .footer-final p { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; color: var(--texto-claro); }
 
+/* =========================================
+   NUEVA SECCIÓN: ESTADÍSTICAS Y TECNOLOGÍAS
+   ========================================= */
+.fila-estadisticas {
+    display: flex;
+    justify-content: center;
+    gap: clamp(20px, 5vw, 60px); 
+    width: 100%;
+    margin-bottom: clamp(30px, 4vw, 50px);
+    flex-wrap: wrap;
+}
+
+.stat-item { text-align: center; }
+
+.stat-numero {
+    font-size: clamp(2.8rem, 5vw, 4rem); 
+    font-weight: 800;
+    color: var(--color-inicio);
+    line-height: 1;
+    font-family: 'Arial', sans-serif;
+}
+
+.stat-plus { 
+    font-size: clamp(2rem, 4vw, 2.5rem); 
+    font-weight: 800; 
+    color: var(--color-inicio); 
+}
+
+.stat-texto {
+    font-size: 0.80rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+.grid-tecnologias {
+    display: flex;
+    justify-content: center;
+    gap: clamp(10px, 2vw, 20px);
+    flex-wrap: wrap;
+    max-width: 800px;
+    width: 100%;
+}
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(197, 160, 89, 0.2); 
+    padding: clamp(10px, 2vw, 20px);
+    border-radius: 12px;
+    width: clamp(90px, 12vw, 110px);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.tech-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-inicio);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tech-item img { 
+    width: clamp(35px, 5vw, 50px); 
+    height: auto; 
+}
+
+.tech-item span { 
+    font-size: 0.75rem; 
+    font-weight: 700; 
+    color: var(--texto-claro); 
+    letter-spacing: 0.5px;
+}
+
 /* ============================================================
    9. RESPONSIVE MASTER / BLINDAJE TOTAL (IPHONE 8 / 375px)
    ============================================================ */
@@ -340,6 +418,11 @@ body { overflow-x: clip; cursor: auto; width: 100%; -webkit-font-smoothing: anti
     }
 
     /* --- INICIO (HERO) --- */
+    .inicio#inicio {
+        min-height: auto !important; /* Elimina el gran vacío en celular */
+        padding-bottom: 40px !important;
+    }
+    
     .inicio .titulo-gigante { font-size: 16vw; top: 15%; width: 100%; white-space: nowrap; }
     .contenedor-hero { width: 320px; height: 320px; margin: 20px auto; display: flex; justify-content: center; align-items: center; }
     .foto-perfil { width: 200px; height: 200px; border-width: 4px; }
@@ -358,7 +441,7 @@ body { overflow-x: clip; cursor: auto; width: 100%; -webkit-font-smoothing: anti
         flex: none !important;
     }
     .texto-animado { 
-        font-size: 1.4rem !important; /* Texto más pequeño para iPhone 8 */
+        font-size: 1.4rem !important; 
         line-height: 1.3 !important; 
     }
     .acordeon-zona { 

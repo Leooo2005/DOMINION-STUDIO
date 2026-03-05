@@ -322,135 +322,81 @@ body { overflow-x: clip; cursor: auto; width: 100%; -webkit-font-smoothing: anti
 .footer-final p { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; color: var(--texto-claro); }
 
 
-/* =========================================
-   9. RESPONSIVE MASTER / MODO MÓVIL BLINDADO (IPHONE 8)
-   ========================================= */
+/* ============================================================
+   9. RESPONSIVE MASTER / BLINDAJE TOTAL (IPHONE 8 / 375px)
+   ============================================================ */
 @media (max-width: 900px) {
     .menu-premium { padding: 0 20px; height: 70px; position: absolute; }
-    
     .menu-izq-contenedor { gap: 10px; }
     .img-logo-menu { height: 35px !important; } 
     .texto-logo { font-size: 1rem !important; display: block !important;} 
     .menu-etiqueta { display: none; } 
-
     .menu-hamburguesa { display: block; padding: 5px; font-size: 1.6rem; }
-    .contenedor-apilable { width: 100%; max-width: 100vw; overflow-x: clip; }
-    .panel { position: relative; height: auto; min-height: 100vh; padding-top: 80px; padding-bottom: 60px; width: 100%; max-width: 100vw; overflow-x: clip; flex-direction: column;}
-    .inicio .titulo-gigante { font-size: 16vw; }
-    
-    /* PALABRAS LARGAS FORZADAS A NO ROMPERSE NUNCA Y CENTRADAS */
+
+    .panel { 
+        position: relative; height: auto; min-height: 100vh; 
+        padding-top: 80px; padding-bottom: 60px; 
+        flex-direction: column; justify-content: flex-start;
+    }
+
+    /* CENTRADO Y TAMAÑO DE TÍTULOS PARA CELULAR */
     .titulo-estilo-cobra, .titulo-seccion { 
-        font-size: 2.2rem !important; /* Tamaño fijo perfecto para iPhone 8 */
+        font-size: 2.1rem !important; /* Tamaño exacto para que "PROYECTOS" quepa en 375px */
         letter-spacing: -1px; 
         width: 100%; 
-        white-space: nowrap !important; /* Evita que las palabras se partan */
-        text-align: center !important;
-        margin-left: auto; margin-right: auto;
-    }
-    
-    .contenedor-contenido-panel { padding: 0px 20px; align-items: center !important; justify-content: flex-start; width: 100%; height: auto; overflow-y: visible; }
-    
-    .contenedor-estado-vacio { margin-top: 10px; }
-    .caja-reserva { padding: 25px 15px; }
-    
-    /* ====================================================
-       ORDEN PARA PROYECTOS EN CELULAR
-       ==================================================== */
-    .contenedor-proyecto, .contenedor-proyecto.inverso { 
-        display: flex !important; 
-        flex-direction: column !important; 
-        align-items: center !important;
-        gap: 0 !important;
-    }
-    
-    .info-proyecto {
-        display: contents !important; 
+        text-align: center !important; 
+        display: block !important;
+        margin: 0 auto 30px auto !important;
+        white-space: nowrap !important; /* Prohíbe terminantemente el salto de línea */
     }
 
-    .titulo-proyecto { order: 1; text-align: center; font-size: 2rem !important; margin-bottom: 10px;}
+    /* Centrado de todo el contenido del panel */
+    .contenedor-contenido-panel { 
+        padding: 0px 20px; 
+        align-items: center !important; 
+        text-align: center !important;
+        width: 100%; 
+    }
+
+    /* ORDEN DE PROYECTOS */
+    .contenedor-proyecto, .contenedor-proyecto.inverso { 
+        display: flex !important; flex-direction: column !important; align-items: center !important; gap: 0 !important;
+    }
+    .info-proyecto { display: contents !important; }
+    .titulo-proyecto { order: 1; text-align: center; font-size: 1.8rem !important; margin-bottom: 10px;}
     .desc-proyecto { order: 2; text-align: center; margin-bottom: 15px;}
     .tags-proyecto { order: 3; justify-content: center; margin-bottom: 20px;}
-    
-    .imagenes-proyecto { 
-        order: 4; 
-        width: 100%; 
-        display: flex; 
-        flex-direction: column; 
-        justify-content: center; 
-        align-items: center; 
-        margin-top: 10px; 
-        position: relative; 
-        padding-bottom: 30px; 
-        min-height: 250px;
-    }
-    
-    .btn-proyecto { 
-        order: 5; 
-        margin-top: 20px; 
-        width: 100%; 
-        text-align: center; 
-    }
+    .imagenes-proyecto { order: 4; width: 100%; display: flex; justify-content: center; position: relative; min-height: 250px; margin-bottom: 20px;}
+    .btn-proyecto { order: 5; width: 100%; text-align: center; }
 
-    .img-desktop { 
-        width: 100% !important; 
-        max-width: 340px !important; 
-        position: relative !important; 
-        display: block !important; 
-        z-index: 1 !important; 
-        margin: 0 auto !important; 
-        border-radius: 8px;
-    }
-    .img-mobile { 
-        width: 120px !important; 
-        height: auto !important;
-        position: absolute !important; 
-        bottom: 0px !important; 
-        right: 5% !important; 
-        z-index: 2 !important; 
-        left: auto !important; 
-        margin: 0 !important;
-        border: 4px solid #222 !important;
-    }
-    .inverso .img-mobile { 
-        left: 5% !important; 
-        right: auto !important; 
-    }
-    
-    .contenedor-grid-servicios { grid-template-columns: 1fr; gap: 15px; width: 100%; margin-top: 10px; }
-    .contenedor-contacto-layout { flex-direction: column; gap: 20px; align-items: center; width: 100%; }
-    .zona-precios { flex-direction: column; gap: 15px; align-items: center; width: 100%; margin-top: 0; }
-    .tarjeta-precio { width: 100%; max-width: 320px; padding: 20px; }
-    .zona-redes { margin-top: 20px; align-items: center; width: 100%; text-align: center; }
+    /* IMÁGENES SIN DEFORMACIÓN */
+    .img-desktop { width: 100% !important; max-width: 320px !important; border-radius: 8px; }
+    .img-mobile { width: 110px !important; bottom: -10px !important; right: 10px !important; border: 3px solid #222 !important; }
+    .inverso .img-mobile { left: 10px !important; right: auto !important; }
+
+    /* SERVICIOS Y CONTACTOS CENTRADOS */
+    .contenedor-grid-servicios { grid-template-columns: 1fr; gap: 15px; width: 100%; }
+    .tarjeta-servicio { align-items: center; text-align: center; }
+    .contenedor-contacto-layout { flex-direction: column; align-items: center; }
+    .zona-precios { flex-direction: column; align-items: center; width: 100%; }
+    .zona-redes { margin-top: 30px; align-items: center; }
     .lista-enlaces-redes { align-items: center; }
-    .contenedor-manifiesto { flex-direction: column; text-align: center; gap: 40px; width: 100%; padding: 0 20px; }
-    
+
+    /* MENÚ DESPLEGABLE */
     .menu-enlaces-contenedor { 
-        position: absolute; top: 0; left: 0; width: 100%; height: auto; 
+        position: absolute; top: 0; left: 0; width: 100%; 
         padding: 80px 20px 30px 20px; background-color: var(--color-inicio); 
-        border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; 
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1); flex-direction: column; 
-        align-items: center; transform: translateY(-100%); transition: transform 0.4s ease; z-index: 1000; 
+        transform: translateY(-100%); transition: transform 0.4s ease; z-index: 1000; 
+        display: flex; flex-direction: column; align-items: center;
     }
     .menu-enlaces-contenedor.activo { transform: translateY(0); }
-    .menu-links { flex-direction: column; gap: 10px; margin-bottom: 20px; align-items: center;}
-    .menu-links a { font-size: 1.1rem; }
-    
-    .btn-cotiza-superior { font-size: 0.9rem; padding: 12px 20px; }
-    
-    .contenedor-hero { width: 300px; height: 300px; margin-top: 30px; }
-    .foto-perfil { width: 200px; height: 200px; }
-    
-    .caja-marketing { height: 160px !important; max-width: 320px !important; margin-top: 20px;}
-    .palabra-marketing-premium { font-size: 1.8rem !important; }
 }
 
-/* --- BLOQUE DE CORRECCIÓN PARA MÓVILES PEQUEÑOS (< 601px) --- */
-@media (max-width: 601px) {
-    .titulo-seccion, .titulo-estilo-cobra {
-        font-size: 2.2rem !important; /* Tamaño reducido para evitar desbordamiento */
-        text-align: center !important;
-        width: 100% !important;
-        display: block !important;
-        white-space: nowrap !important;
+/* BLINDAJE EXTRA PARA PANTALLAS EXTREMADAMENTE PEQUEÑAS (iPhone SE/8) */
+@media (max-width: 380px) {
+    .titulo-estilo-cobra, .titulo-seccion {
+        font-size: 1.9rem !important; /* Un poco más pequeño para asegurar el centro */
     }
+    .logo-grande { font-size: 1.1rem !important; }
+    .btn-cotiza-superior { padding: 10px 15px; font-size: 0.75rem; }
 }

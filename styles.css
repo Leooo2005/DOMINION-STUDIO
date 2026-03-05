@@ -258,8 +258,8 @@ body { overflow-x: clip; cursor: auto; width: 100%; -webkit-font-smoothing: anti
 .tarjeta-precio { 
     background-color: var(--texto-claro); color: var(--texto-oscuro); 
     border: 2px solid var(--texto-oscuro); 
-    padding: 20px; 
-    display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1; max-width: 320px; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    padding: 30px 20px 35px 20px; 
+    display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1; max-width: 330px; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 .tarjeta-precio:hover { transform: translateY(-5px); box-shadow: 0 15px 45px rgba(0,0,0,0.3); }
 .tarjeta-pro { background-color: var(--color-inicio); border: 3px solid var(--texto-oscuro); } 
@@ -317,9 +317,28 @@ body { overflow-x: clip; cursor: auto; width: 100%; -webkit-font-smoothing: anti
 .enlace-red svg { transition: transform 0.3s ease; width: 20px; height: 20px; }
 .enlace-red:hover svg { transform: scale(1.1); }
 
-/* COPYRIGHT */
-.footer-final { width: 100%; text-align: center; padding: 15px 0; margin-top: auto; border-top: 1px solid rgba(255,255,255,0.1); }
-.footer-final p { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; color: var(--texto-claro); }
+/* COPYRIGHT (ANCLADO AL FINAL) */
+.footer-final { 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
+    text-align: center; 
+    padding: 15px 0; 
+    background-color: var(--color-contactos); 
+    border-top: 1px solid rgba(255,255,255,0.1); 
+    z-index: 10;
+}
+
+.footer-final p { 
+    font-size: 0.7rem; 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    opacity: 0.5; 
+    color: var(--texto-claro); 
+    margin: 0;
+}
 
 /* =========================================
    NUEVA SECCIÓN: ESTADÍSTICAS Y TECNOLOGÍAS
@@ -327,7 +346,7 @@ body { overflow-x: clip; cursor: auto; width: 100%; -webkit-font-smoothing: anti
 .fila-estadisticas {
     display: flex;
     justify-content: center;
-    gap: clamp(20px, 5vw, 60px); 
+    gap: clamp(20px, 5vw, 60px); /* Usa vw para amoldarse a la pantalla */
     width: 100%;
     margin-bottom: clamp(30px, 4vw, 50px);
     flex-wrap: wrap;
@@ -336,7 +355,7 @@ body { overflow-x: clip; cursor: auto; width: 100%; -webkit-font-smoothing: anti
 .stat-item { text-align: center; }
 
 .stat-numero {
-    font-size: clamp(2.8rem, 5vw, 4rem); 
+    font-size: clamp(2.8rem, 5vw, 4rem); /* Responsive sin romper */
     font-weight: 800;
     color: var(--color-inicio);
     line-height: 1;
@@ -441,7 +460,7 @@ body { overflow-x: clip; cursor: auto; width: 100%; -webkit-font-smoothing: anti
         flex: none !important;
     }
     .texto-animado { 
-        font-size: 1.4rem !important; 
+        font-size: 1.4rem !important; /* Texto más pequeño para iPhone 8 */
         line-height: 1.3 !important; 
     }
     .acordeon-zona { 

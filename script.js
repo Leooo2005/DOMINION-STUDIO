@@ -140,26 +140,34 @@ const observadorServicios = new IntersectionObserver((entradas) => {
 tarjetasServicios.forEach(tarjeta => observadorServicios.observe(tarjeta));
 
 /* ==========================================
-   ANIMACIÓN DE ESTADÍSTICAS (CONTADOR)
+   ANIMACIÓN DE ESTADÍSTICAS (CORREGIDO PARA NÚMEROS PEQUEÑOS)
    ========================================== */
 const contadores = document.querySelectorAll('.stat-numero');
-const velocidad = 100; // Ajusta esto para hacerlo más rápido o lento
+const duracionAnimacion = 400; // 1.5 segundos (1500 ms) para que se vea el conteo
 
 const animarContadores = () => {
     contadores.forEach(contador => {
-        const actualizarCuenta = () => {
-            const objetivo = +contador.getAttribute('data-target');
-            const conteoActual = +contador.innerText;
-            const incremento = objetivo / velocidad;
+        const objetivo = +contador.getAttribute('data-target');
+        let tiempoInicio = null;
 
-            if (conteoActual < objetivo) {
-                contador.innerText = Math.ceil(conteoActual + incremento);
-                setTimeout(actualizarCuenta, 30);
+        const actualizarCuenta = (tiempoActual) => {
+            if (!tiempoInicio) tiempoInicio = tiempoActual;
+            
+            // Calcula cuánto tiempo ha pasado (de 0.0 a 1.0)
+            const progreso = Math.min((tiempoActual - tiempoInicio) / duracionAnimacion, 1);
+            
+            // Math.floor asegura que cuente los enteros sin saltarse nada
+            contador.innerText = Math.floor(progreso * objetivo);
+
+            // Si no ha llegado al 100% de la animación, sigue contando
+            if (progreso < 1) {
+                requestAnimationFrame(actualizarCuenta);
             } else {
-                contador.innerText = objetivo;
+                contador.innerText = objetivo; // Asegura que se detenga en el número exacto
             }
         };
-        actualizarCuenta();
+        
+        requestAnimationFrame(actualizarCuenta);
     });
 }
 

@@ -678,3 +678,58 @@ body { overflow-x: clip; cursor: auto; width: 100%; -webkit-font-smoothing: anti
     .palabra-marketing-premium { font-size: 1.4rem !important; }
     .logo-grande { font-size: 1.1rem !important; }
 }
+
+/* Color para el fondo del proyecto Elite */
+.elite-bg {
+    background-color: #0d0d0d; /* Un negro más profundo */
+    border-top: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+/* Botón personalizado para Casa Blanca */
+.btn-elite {
+    background-color: transparent;
+    color: #C5A059;
+    border: 1px solid #C5A059;
+}
+
+.btn-elite:hover {
+    background-color: #C5A059;
+    color: #000;
+}
+
+/* Ajuste de color para los tags de Casa Blanca */
+.elite-bg .tags-proyecto span {
+    background-color: rgba(197, 160, 89, 0.1);
+    color: #C5A059;
+    border: 1px solid rgba(197, 160, 89, 0.3);
+}/* Color para el fondo del proyecto Elite - AJUSTADO PARA VISIBILIDAD */
+.elite-bg {
+    background-color: #1a1a1a; /* Un gris carbón oscuro pero más claro que el negro puro */
+    border-top: 1px solid rgba(197, 160, 89, 0.3);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+/* Asegurar que el texto destaque en este panel */
+.elite-bg .desc-proyecto {
+    color: #f3e5d8; /* Color crema suave para máxima legibilidad */
+    font-weight: 400;
+    opacity: 1; /* Quitamos cualquier transparencia */
+    line-height: 1.6;
+}
+
+.elite-bg .titulo-proyecto {
+    color: #C5A059; /* Dorado brillante */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra para que "salte" del fondo */
+}
+
+/* Efecto de luz para que la sección no se sienta plana */
+.elite-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(197, 160, 89, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
